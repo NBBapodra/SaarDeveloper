@@ -5,6 +5,7 @@ import com.example.SaarDeveloper.Exeception.ResourceNotFoundException;
 import com.example.SaarDeveloper.model.PlotBooking;
 import com.example.SaarDeveloper.repository.PlotBookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class PlotBookingServiceImpl implements PlotBookingService {
 
     @Override
     public List<PlotBooking> getAllPlots() {
-        return (List<PlotBooking>)plotBookingRepository.findAll();
+        return (List<PlotBooking>)plotBookingRepository.findAll(Sort.by(Sort.Direction.ASC,"id"));
     }
 
     @Override
